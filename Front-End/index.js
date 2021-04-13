@@ -1,1 +1,0 @@
-/*Lien avec l'API */
