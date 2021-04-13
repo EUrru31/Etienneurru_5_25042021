@@ -3860,6 +3860,7 @@ textarea.form-control-lg {
 .navbar {
   position: relative;
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
@@ -3888,7 +3889,9 @@ textarea.form-control-lg {
 }
 .navbar-nav {
   display: flex;
-  flex-direction: column;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+  flex-direction: row;
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
@@ -5995,6 +5998,60 @@ textarea.form-control-lg {
   height: 100vh;
   content: "";
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+body {
+  background-color: #f1efef;
+  font-family: "comic Sans MS", sans-serif;
+}
+
+header {
+  height: 130px;
+  display: flex;
+  border-bottom: 1px solid grey;
+  margin-bottom: 40px;
+}
+
+.logo {
+  width: 120px;
+  display: flex;
+}
+.logo p {
+  display: flex;
+  align-items: flex-end;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.logo p span {
+  margin-left: 30px;
+  font-size: 1rem;
+  font-weight: lighter;
+}
+
+.nav-item {
+  margin-right: 60px;
+  font-size: large;
+}
+
+.container {
+  width: 100%;
+  height: 400px;
+  background-color: blue;
+}
+
+footer {
+  border-top: 1px solid grey;
+  padding-top: 20px;
+  margin-top: 30px;
+}
+footer ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+footer ul li {
+  margin-right: 80px;
+  margin-left: 80px;
 }
 
 .clearfix::after {
