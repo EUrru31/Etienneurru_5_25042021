@@ -3,8 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        <link href="bootstrap.css" rel="stylesheet">
+        <link href="bootstrap.css" rel="stylesheet" />
         <title>Oriteddies</title>
     </head>
 
@@ -26,7 +25,7 @@
                         <a class="nav-link" href="#">Qui sommes nous?</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="#">Panier</a>
+                        <a class="nav-link" href="panier.html">Panier</a>
                      </li>
                 </ul>
                 
@@ -34,7 +33,10 @@
         </header>
 
         <main class="container">
-            <template id="template">
+
+            <h1>Nos produits</h1>
+
+            <template id="templateTeddy">
                 <article id="teddies__card" class="teddies__card"  onclick="location.href='pageproduit.html'">
                     <img id="teddies__imageUrl" class="teddies__imageUrl" src="" alt=""/>
                     <h2 id="teddies__name" class="teddies__name"></h2>
@@ -46,12 +48,22 @@
         </main>
 
         <footer>
+            
             <ul>
                 <img class="logo" src="img/orinoco-logo.png">
                 <li>Condition générale de vente</li>
                 <li>Où nous trouver</li>
             </ul>
+
+            <ul>
+                <li>A propos de nous</li>
+                <li>Oriteddies, revendeur francais de peluches de qualité, pour petits et grands. </li>
+                <li>Contactez-nous au 0123456789 ou par email: oriteddies@orinoco.fr</li>
+                
+            </ul>
+
         </footer>
+        <script src="../Back-End/models/Teddy.js"></script>
         <script src="index.js" defer></script>
     </body>
 </html>
