@@ -32,19 +32,23 @@
             </div>
         </header>
 
-        <main class="main">
+        <h1>Nos produits</h1>
 
-            <h1>Nos produits</h1>
+        <main id="main" class="main">
 
-            <template id="templateTeddy">
-                <article id="teddies__card" class="teddies__card"  onclick="location.href='pageproduit.html'">
-                    <img id="teddies__imageUrl" class="teddies__imageUrl" src="" alt=""/>
-                    <h2 id="teddies__name" class="teddies__name"></h2>
-                    <p id="teddies__description" class="teddies__description"></p>
-                    <p id="teddies__price" class="teddies__price"></p>
-                </article>
-            </template>
-
+                <template id="templateTeddy" class="template">
+                    
+                    <a href="pageproduit.html" class="card">
+                        <article id="teddies__card" class="teddies__card">
+                            <img id="teddies__imageUrl" class="teddies__imageUrl" src="" alt=""/>
+                            <h2 id="teddies__name" class="teddies__name"></h2>
+                            <p id="teddies__description" class="teddies__description"></p>
+                            <p id="teddies__price" class="teddies__price"></p>
+                        </article>
+                    </a>
+                
+                </template>
+            
         </main>
 
         <footer>
@@ -63,7 +67,6 @@
             </ul>
 
         </footer>
-        <script src="../Back-End/models/Teddy.js"></script>
         <script src="index.js" defer></script>
     </body>
 </html>

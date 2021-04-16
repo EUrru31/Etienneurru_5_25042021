@@ -8,7 +8,7 @@ async function main() {
     }
 }
 
-function getAllTeddies() {
+async function getAllTeddies() {
     return fetch("http://localhost:3000/api/teddies")
         .then(function (httpBodyResponse) {
             return httpBodyResponse.json();
@@ -18,14 +18,16 @@ function getAllTeddies() {
         });
 }
 
-function displayTeddy() {
+function displayTeddy(teddy) {
     const templateElt = document.getElementById("templateTeddy");
     const cloneElt = document.importNode(templateElt.content, true);
 
-    cloneElt.getElementById("teddies__name").textContent = teddies.name;
+    cloneElt.getElementById("teddies__name").textContent = teddy.name;
     cloneElt.getElementById("teddies__description").textContent =
-        teddies.description;
-    cloneElt.getElementById("teddies__price").textContent = teddies.price;
+        teddy.description;
+    cloneElt.getElementById("teddies__price").textContent = teddy.price;
+    /*cloneElt.getElementById("teddies__imageUrl").setAttribute("");
+    cloneElt.getElementById("teddies__url").setAttribute();*/
 
     document.getElementById("main").appendChild(cloneElt);
 }

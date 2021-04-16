@@ -43,6 +43,28 @@ header {
     color: black !important;
 }
 
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    text-decoration: none;
+    color: black;
+}
+
+.teddies__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
 h1 {
     margin-bottom: 40px;
     margin-left: auto;
