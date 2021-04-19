@@ -30,7 +30,8 @@ function displayTeddy(teddy) {
     cloneElt.getElementById("teddies__name").textContent = teddy.name;
     cloneElt.getElementById("teddies__description").textContent =
         teddy.description;
-    cloneElt.getElementById("teddies__price").textContent = teddy.price;
+    cloneElt.getElementById("teddies__price").textContent =
+        teddy.price / 100 + ".00" + " " + "€";
     cloneElt.getElementById("teddies__imageUrl").src = teddy.imageUrl;
 
     cloneElt
