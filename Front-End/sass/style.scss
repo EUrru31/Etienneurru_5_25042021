@@ -50,12 +50,21 @@ header {
 }
 
 .card {
-    width: 800px;
+    width: 500px;
+    padding: 10px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 50px;
     text-decoration: none;
     color: black;
+    border-radius: 20px;
+}
+
+.teddies__imageUrl {
+    width: 98%;
+    height: 330px;
+    margin-bottom: 20px;
+    border-radius: 20px;
 }
 
 .teddies__card {
