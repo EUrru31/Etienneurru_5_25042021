@@ -6089,6 +6089,13 @@ h1, .h1 {
   justify-content: center;
 }
 
+h2, .h2 {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+}
+
 .table {
   font-size: 1rems;
   margin-bottom: 50px;
@@ -6106,6 +6113,7 @@ footer {
   border-top: 1px solid grey;
   padding-top: 20px;
   margin-top: 30px;
+  margin-bottom: 30px;
   display: flex;
   justify-content: space-around;
 }
@@ -6139,6 +6147,12 @@ footer ul img {
 
 .teddies__price {
   font-size: 1.1rem;
+}
+
+.présentation {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  text-align: center;
 }
 
 .clearfix::after {
