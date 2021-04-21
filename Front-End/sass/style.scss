@@ -61,7 +61,7 @@ header {
 }
 
 .teddies__imageUrl {
-    width: 98%;
+    width: 99%;
     height: 330px;
     margin-bottom: 20px;
     border-radius: 20px;
@@ -75,7 +75,6 @@ header {
 }
 
 h1 {
-    margin-bottom: 40px;
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -115,4 +114,22 @@ footer {
             margin-right: 80px;
         }
     }
+}
+
+.card__produit {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+}
+
+.teddies__image {
+    width: 600px;
+}
+
+.teddies__name {
+    font-size: 1.6rem;
+}
+
+.teddies__price {
+    font-size: 1.1rem;
 }
