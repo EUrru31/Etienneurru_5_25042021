@@ -89,12 +89,21 @@ h2 {
 }
 
 .table {
-    font-size: 1rems;
+    margin-top: 40px;
     margin-bottom: 50px;
     &__base {
         border-bottom: 1px solid rgb(0, 0, 0) !important;
         font-size: 1.3rem !important;
     }
+}
+
+.total {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.coordonnées {
+    margin-top: 40px;
 }
 
 .legend {

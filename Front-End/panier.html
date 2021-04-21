@@ -38,26 +38,16 @@
             <h1>Panier</h1>
 
             <table class="table">
-                <tr class="table__base">
-                    <td>Produit</td>
-                    <td>Quantité</td>
-                    <td>Total</td>
-                </tr>
-
-                <tr>
-                    <td>Produit sélectionné avec option</td>
-                    <td>Quantité choisis</td>
-                    <td>Prix de la ligne</td>
-                </tr>
-
-                <tr>
-                    <td></td>
-                    <td>Total :</td>
-                    <td>Total de toute les lignes</td>
-                </tr>
+                <thead>
+                    <tr><th>Article</th><th>Prix</th><th>Quantité</th></tr>
+                </thead>
+                <tbody id="cart-tablebody"></tbody>
             </table>
+            
+            <p class="total">Total : <span id="total"></span>€</p>
 
-            <form method="post" action="#">
+            
+            <form method="post" action="#" class="coordonnées">
                 <fieldset class="fieldset">
                     <legend class="legend">Vos coordonnées</legend>
                         <p>

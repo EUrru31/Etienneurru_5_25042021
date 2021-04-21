@@ -2,7 +2,7 @@ const url = window.location.href;
 const teddyId = url.split("=")[1];
 console.log(teddyID);
 
-fetch("http://localhost:3000/api/teddies/" + teddyId)
+fetch("http://127.0.0.1:5500/pageproduit.html&id=" + teddy.id)
     .then((response) => {
         console.log(response);
         return response.json();
