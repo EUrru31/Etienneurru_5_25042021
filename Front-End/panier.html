@@ -47,41 +47,85 @@
             <p class="total">Total : <span id="total"></span>€</p>
 
             
-            <form method="post" action="#" class="coordonnées">
-                <fieldset class="fieldset">
-                    <legend class="legend">Vos coordonnées</legend>
-                        <p>
-                            <label for="name">Nom</label>
-                            <input type="text" name="name" id="name" />
-                        </p>
-                        <p>
-                            <label for="firstname">Prénom</label>
-                            <input type="text" name="firstname" id="firstname" />
-                        </p>
-                        <p>
-                            <label for="adresse">Adresse</label>
-                            <input type="text" name="adresse" id="adresse" />
-                        </p>
-                        <p>
-                            <label for="cp">Code Postal</label>
-                            <input type="text" name="cp" id="cp" />
-                        </p>
-                        <p>
-                            <label for="ille">Ville</label>
-                            <input type="text" name="ville" id="ville" />
-                        </p>
-                        <p>
-                            <label for="email">Email</label>
-                            <input type="email" name="email" id="email" />
-                        </p>
-                        <p>
-                            <label for="tel">Téléphone</label>
-                            <input type="tel" name="tel" id="tel" />
-                        </p>
-                </fieldset>
-            </form>
+            <form class="formulaire well form-horizontal" action=" " method="post"  id="contact_form">
+                <fieldset>
+         
+                <legend>Coordonnées</legend>
+                
+                <div class="form-group">
+                  <label class="col-md-4 control-label">Prénom</label>  
+                    <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                      <input  name="first_name" placeholder="Prénom" class="form-control"  type="text">
+                      </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                  <label class="col-md-4 control-label" >Nom</label> 
+                    <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                  <input name="last_name" placeholder="Nom" class="form-control"  type="text">
+                    </div>
+                  </div>
+                </div>
+                
+                       <div class="form-group">
+                  <label class="col-md-4 control-label">E-Mail</label>  
+                    <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                  <input name="email" placeholder="E-Mail" class="form-control"  type="text">
+                    </div>
+                  </div>
+                </div>
+                       
+                <div class="form-group">
+                  <label class="col-md-4 control-label">Téléphone</label>  
+                    <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                  <input name="phone" placeholder="0123456789" class="form-control" type="text">
+                    </div>
+                  </div>
+                </div>
+                      
+                <div class="form-group">
+                  <label class="col-md-4 control-label">Adresse</label>  
+                    <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                  <input name="address" placeholder="Adresse" class="form-control" type="text">
+                    </div>
+                  </div>
+                </div>
+                 
+                <div class="form-group">
+                  <label class="col-md-4 control-label">Ville</label>  
+                    <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                  <input name="city" placeholder="Ville" class="form-control"  type="text">
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label class="col-md-4 control-label">Code Postal</label>  
+                    <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                  <input name="zip" placeholder="Code Postal" class="form-control"  type="text">
+                    </div>
+                </div>
+                </div>
 
-            <button class="btn">Commander</button>
+                </fieldset>
+                </form>
+
+                <button class="btn">Commander</button>
             
         </main>
 
@@ -101,8 +145,8 @@
             </ul>
 
         </footer>
-        <script src="../Back-End/models/Teddy.js"></script>
-        <script src="index.js" defer></script>
+
+        <script src="panier.js" defer></script>
     </body>
 </html>
 </html>
