@@ -36,10 +36,16 @@
         <main class="container">
 
             <div class="card__produits">
-                <img class="teddies__image" src="teddy_1.jpg">
+                <div>
+                    <img id="teddiesImage" class="teddies__image" src="">
+                </div>
+
                 <div class="teddies__text">
-                    <h1 class="teddies__name">Nom de la peluche</h1>
-                    <p class="teddies__price">Prix</p>
+
+                    <h1 id="teddiesName" class="teddies__name">Nom de la peluche</h1>
+
+                    <p id="teddiesPrice" class="teddies__price">Prix</p>
+
                     <select name="color" class="teddies__choice">
                         <option value="">Choississez une couleur</option>
                         <option value="marron">Marron</option>
@@ -58,8 +64,8 @@
                         <option value="8">8</option>
                         <option value="9">9</option>
                     </select>
-                    <button>Ajouter au panier</button>
-                    <p class="teddies__description">Description</p>
+                    <button class="btn">Ajouter au panier</button>
+                    <p id="teddiesDescription" class="teddies__description">Description</p>
                 </div>
             </div>
 

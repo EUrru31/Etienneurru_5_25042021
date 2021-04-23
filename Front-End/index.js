@@ -32,14 +32,13 @@ function displayTeddy(teddy) {
         teddy.description;
     cloneElt.getElementById("teddies__price").textContent =
         teddy.price / 100 + ".00" + " " + "€";
-    cloneElt.getElementById("teddies__imageUrl").src = teddy.imageUrl;
+    cloneElt
+        .getElementById("teddies__imageUrl")
+        .setAttribute("src", teddy.imageUrl);
 
     cloneElt
         .getElementById("teddies__url")
-        .setAttribute(
-            "src",
-            "http://127.0.0.1:5500/pageproduit.html&id=" + teddy.id
-        );
+        .setAttribute("href", "pageproduit.html?id=" + teddy._id);
 
     document.getElementById("main").appendChild(cloneElt);
 }

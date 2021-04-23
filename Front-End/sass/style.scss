@@ -161,3 +161,14 @@ footer {
     margin-top: 30px;
     margin-bottom: 30px;
 }
+
+.card__produits {
+    display: flex;
+}
+
+.teddies__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 30px;
+}

@@ -1,12 +1,22 @@
-const url = window.location.href;
-const teddyId = url.split("=")[1];
-console.log(teddyID);
+fillProductInformation();
 
-fetch("http://127.0.0.1:5500/pageproduit.html&id=" + teddy.id)
-    .then((response) => {
-        console.log(response);
-        return response.json();
-    })
-    .then((teddy) => {
-        console.log(teddy);
-    });
+function fillProductInformation() {
+    const url = new URL(window.location.href);
+    const teddyID = url.searchParams.get("id");
+
+    fetch("http://localhost:3000/api/teddies/" + teddyID)
+        .then(function (httpResponse) {
+            return httpResponse.json();
+        })
+        .then(function (teddy) {
+            fillProduct(teddy);
+        });
+}
+
+function fillProduct(teddy) {
+    document.getElementById("teddiesName").innerHTML = teddy.name;
+    document.getElementById("teddiesDescription").innerHTML = teddy.description;
+    document.getElementById("teddiesPrice").innerHTML =
+        teddy.price / 100 + ".00" + " " + "€";
+    document.getElementById("teddiesImage").setAttribute("src", teddy.imageUrl);
+}
