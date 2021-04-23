@@ -42,6 +42,4 @@ function displayTeddy(teddy) {
         );
 
     document.getElementById("main").appendChild(cloneElt);
-
-    //const euro =new Intl.NumberFormat('fr', { style: 'currency', currency: 'EUR' }).format(number));
 }
