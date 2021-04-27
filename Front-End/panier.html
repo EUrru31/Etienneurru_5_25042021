@@ -57,7 +57,7 @@
                     <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                       <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                      <input  name="first_name" placeholder="Prénom" class="form-control"  type="text" required>
+                      <input id="firstName"  name="first_name" placeholder="Prénom" class="form-control"  type="text" required>
                       </div>
                     </div>
                 </div>
@@ -77,7 +77,7 @@
                     <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                  <input name="email" placeholder="E-Mail" class="form-control"  type="email" required>
+                  <input id="email" name="email" placeholder="E-Mail" class="form-control"  type="email" required>
                     </div>
                   </div>
                 </div>
@@ -125,8 +125,16 @@
                 </fieldset>
                 </form>
 
-                <button class="btn">Commander</button>
-            
+                <button onclick="setData()" href="#modal" class="btn">Commander</button>
+                
+                <aside id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="false" style="display:none">
+                  <div class="modal-wrapper js-modal-stop">
+                    <p>Bonjour <span id="nom"></span>, nous vous confirmons la réception de votre commande n°<span id="numeroCommande"></span></p>
+                    <p>Un email vous sera envoyer, sur l'adresse :<span id="emailConfirmation"></span>, lorsque votre commande sera expédiée.</p>
+                    <p>A bientôt sur notre site</p>
+                    <button class="js-modal-close btn" href="index.html">Fermer</button>
+                  </div>
+                </aside>
         </main>
 
         <footer>
