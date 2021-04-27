@@ -27,17 +27,17 @@ function displayTeddy(teddy) {
     const templateElt = document.getElementById("templateTeddy");
     const cloneElt = document.importNode(templateElt.content, true);
 
-    cloneElt.getElementById("teddies__name").textContent = teddy.name;
-    cloneElt.getElementById("teddies__description").textContent =
+    cloneElt.getElementById("teddiesName").textContent = teddy.name;
+    cloneElt.getElementById("teddiesDescription").textContent =
         teddy.description;
-    cloneElt.getElementById("teddies__price").textContent =
+    cloneElt.getElementById("teddiesPrice").textContent =
         teddy.price / 100 + ".00" + " " + "€";
     cloneElt
-        .getElementById("teddies__imageUrl")
+        .getElementById("teddiesImageUrl")
         .setAttribute("src", teddy.imageUrl);
 
     cloneElt
-        .getElementById("teddies__url")
+        .getElementById("teddiesUrl")
         .setAttribute("href", "pageproduit.html?id=" + teddy._id);
 
     document.getElementById("main").appendChild(cloneElt);

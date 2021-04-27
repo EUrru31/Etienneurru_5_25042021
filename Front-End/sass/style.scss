@@ -143,14 +143,6 @@ footer {
     width: 600px;
 }
 
-.teddies__name {
-    font-size: 1.6rem;
-}
-
-.teddies__price {
-    font-size: 1.1rem;
-}
-
 .présentation {
     margin-top: 40px;
     margin-bottom: 40px;
@@ -171,4 +163,17 @@ footer {
     flex-direction: column;
     justify-content: space-between;
     margin: 30px;
+    .teddies__name {
+        font-size: 1.6rem;
+        margin-left: 0;
+    }
+    .teddies__price {
+        font-size: 1.1rem;
+    }
+}
+
+.btn-panier {
+    background-color: rgb(40, 212, 40);
+    border-radius: 20px;
+    width: 40%;
 }
