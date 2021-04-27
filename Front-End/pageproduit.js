@@ -20,3 +20,17 @@ function fillProduct(teddy) {
         teddy.price / 100 + ".00" + " " + "€";
     document.getElementById("teddiesImage").setAttribute("src", teddy.imageUrl);
 }
+
+function fillOption(options) {
+    const option = document.getElementById("options");
+    const colors = teddy["colors"];
+    console.log("colors");
+
+    for (let i = 0; i < colors.length; i++) {
+        let col = colors[i];
+        let opt = document.createElement("option");
+        opt.textContent = col;
+        opt.value = col;
+        select.add(opt);
+    }
+}

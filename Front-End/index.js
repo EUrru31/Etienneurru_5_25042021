@@ -11,10 +11,10 @@ async function main() {
 // Récupération de la base de donnée
 async function getAllTeddies() {
     return fetch("http://localhost:3000/api/teddies")
-        .then(function (httpBodyResponse) {
+        .then((httpBodyResponse) => {
             return httpBodyResponse.json();
         })
-        .then(function (teddies) {
+        .then((teddies) => {
             return teddies;
         })
         .catch((error) => {
