@@ -1,19 +1,11 @@
-// information à récuperer pour page de confirmation: firstName / email
+let data_json = localStorage.getItem("objet");
+let objetPanier = JSON.parse(data_json);
 
-const naame = () => {
-    let nom = document.getElementById("firstName");
-    let nameStorage = localStorage.getItem("prenom");
-
-    if (nameStorage == null) {
-        console.log("alert");
-    } else {
-        nom.innerHTML = "${nameStorage}";
-    }
-};
-
-function setData() {
-    let firstName = document.getElementById("firstName").value;
-    localStorage.setItem("prenom", firstName);
+function fillPanier() {
+    document.getElementById("article").innerHTML = objetPanier.teddiesName;
+    document.getElementById("couleur").innerHTML = objetPanier.teddiesColor;
+    document.getElementById("prix").innerHTML = objetPanier.teddiesPrice;
+    document.getElementById("quantité").innerHTML = objetPanier.teddiesQuant;
 }
 
-naame();
+fillPanier();

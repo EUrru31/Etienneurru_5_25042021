@@ -36,48 +36,17 @@ function fillOption(teddy) {
     }
 }
 
-function setData() {
-    let teddiesName = document.getElementById("teddiesName").textContent;
-    let teddiesColor = document.getElementById("options").value;
-    let teddiesQuant = document.getElementById("quantité").value;
-    let teddiesPrice = document.getElementById("teddiesPrice").innerHTML;
+const btn = document.getElementById("validationPanier");
 
-    let data = [teddiesName, teddiesColor, teddiesQuant, teddiesPrice];
-    localStorage.setItem("key", data);
-}
+btn.addEventListener("click", () => {
+    let data = {
+        teddiesName: document.getElementById("teddiesName").textContent,
+        teddiesColor: document.getElementById("options").value,
+        teddiesQuant: document.getElementById("teddiesQuantité").value,
+        teddiesPrice: document.getElementById("teddiesPrice").innerHTML,
+    };
 
-//localStorage.setItem("quantité", teddiesQuant);
-//localStorage.setItem("teddiesPrice", teddiesPrice);
-
-/*const teddyName = () => {
-    let nom = document.getElementById("teddiesName");
-    let nameStorage = localStorage.getItem("nomTeddy");
-
-    if (nameStorage == null) {
-        console.log("alert");
-    } else {
-        nom.innerHTML = "${nameStorage}";
-    }
-};
-
-const teddyColor = () => {
-    let option = document.getElementById("options");
-    let nameStorage = localStorage.getItem("colorTeddy");
-
-    if (nameStorage == null) {
-        console.log("alert");
-    } else {
-        option.innerHTML = "${nameStorage}";
-    }
-};
-
-const teddyQuant = () => {
-    let quant = document.getElementById("quantité");
-    let nameStorage = localStorage.getItem("quantTeddy");
-
-    if (nameStorage == null) {
-        console.log("alert");
-    } else {
-        quant.innerHTML = "${nameStorage}";
-    }
-};*/
+    let data_json = JSON.stringify(data);
+    console.log(data);
+    localStorage.setItem("objet", data_json);
+});
