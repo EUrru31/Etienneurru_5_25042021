@@ -35,3 +35,49 @@ function fillOption(teddy) {
         select.add(opt);
     }
 }
+
+function setData() {
+    let teddiesName = document.getElementById("teddiesName").textContent;
+    let teddiesColor = document.getElementById("options").value;
+    let teddiesQuant = document.getElementById("quantité").value;
+    let teddiesPrice = document.getElementById("teddiesPrice").innerHTML;
+
+    let data = [teddiesName, teddiesColor, teddiesQuant, teddiesPrice];
+    localStorage.setItem("key", data);
+}
+
+//localStorage.setItem("quantité", teddiesQuant);
+//localStorage.setItem("teddiesPrice", teddiesPrice);
+
+/*const teddyName = () => {
+    let nom = document.getElementById("teddiesName");
+    let nameStorage = localStorage.getItem("nomTeddy");
+
+    if (nameStorage == null) {
+        console.log("alert");
+    } else {
+        nom.innerHTML = "${nameStorage}";
+    }
+};
+
+const teddyColor = () => {
+    let option = document.getElementById("options");
+    let nameStorage = localStorage.getItem("colorTeddy");
+
+    if (nameStorage == null) {
+        console.log("alert");
+    } else {
+        option.innerHTML = "${nameStorage}";
+    }
+};
+
+const teddyQuant = () => {
+    let quant = document.getElementById("quantité");
+    let nameStorage = localStorage.getItem("quantTeddy");
+
+    if (nameStorage == null) {
+        console.log("alert");
+    } else {
+        quant.innerHTML = "${nameStorage}";
+    }
+};*/

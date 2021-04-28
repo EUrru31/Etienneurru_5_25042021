@@ -28,8 +28,7 @@ function displayTeddy(teddy) {
     const cloneElt = document.importNode(templateElt.content, true);
 
     cloneElt.getElementById("teddiesName").textContent = teddy.name;
-    cloneElt.getElementById("teddiesDescription").textContent =
-        teddy.description;
+
     cloneElt.getElementById("teddiesPrice").textContent =
         teddy.price / 100 + ".00" + " " + "€";
     cloneElt

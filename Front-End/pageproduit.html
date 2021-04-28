@@ -42,18 +42,18 @@
 
                 <div class="teddies__text">
 
-                    <h1 id="teddiesName" class="teddies__name">Nom de la peluche</h1>
+                    <h1 id="teddiesName" class="teddies__name"></h1>
 
-                    <p id="teddiesDescription" class="teddies__description">Description</p>
+                    <p id="teddiesDescription" class="teddies__description"></p>
 
-                    <p id="teddiesPrice" class="teddies__price">Prix</p>
+                    <p id="teddiesPrice" class="teddies__price"></p>
 
                     <select name="color" id="options" class="teddies__choice">
                         <option value="">Choississez une couleur</option>
                                                 
                     </select>
-                    <input name="quantité" placeholder="1" class="form-control" type="number">
-                    <button class="btn-panier">Ajouter au panier</button>
+                    <input id="quantité" name="quantité" placeholder="1" class="form-control" type="number">
+                    <button onclick="setData()" class="btn-panier">Ajouter au panier</button>
                     
                 </div>
             </div>
