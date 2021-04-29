@@ -36,10 +36,10 @@ function fillOption(teddy) {
     }
 }
 
-const btn = document.getElementById("validationPanier");
+/*const btn = document.getElementById("validationPanier");
 
-btn.addEventListener("click", () => {
-    let data = {
+btn.addEventListener("click", async function () {
+    const data = {
         teddiesName: document.getElementById("teddiesName").textContent,
         teddiesColor: document.getElementById("options").value,
         teddiesQuant: document.getElementById("teddiesQuantité").value,
@@ -49,4 +49,21 @@ btn.addEventListener("click", () => {
     let data_json = JSON.stringify(data);
     console.log(data);
     localStorage.setItem("objet", data_json);
+});*/
+
+const btn = document.getElementById("validationPanier");
+btn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const teddy = {
+        teddiesName: document.getElementById("teddiesName").textContent,
+        teddiesColor: document.getElementById("options").value,
+        teddiesQuant: document.getElementById("teddiesQuantité").value,
+        teddiesPrice: document.getElementById("teddiesPrice").innerHTML,
+    };
+
+    console.log(teddy);
+    const panier = [];
+    let data = JSON.stringify(localStorage.getItem("panier"));
+    panier.push(data);
 });
