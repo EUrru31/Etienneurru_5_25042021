@@ -1,3 +1,4 @@
+// Récupération des données des oursons grace à leurs ID
 fillProductInformation();
 
 function fillProductInformation() {
@@ -9,21 +10,23 @@ function fillProductInformation() {
             return httpResponse.json();
         })
         .then(function (teddy) {
-            fillProduct(teddy);
+            addProduct(teddy);
         });
 }
 
-function fillProduct(teddy) {
+// Implantation des informations des ours
+function addProduct(teddy) {
     document.getElementById("teddiesName").innerHTML = teddy.name;
     document.getElementById("teddiesDescription").innerHTML = teddy.description;
     document.getElementById("teddiesPrice").innerHTML =
         teddy.price / 100 + ".00" + " " + "€";
     document.getElementById("teddiesImage").setAttribute("src", teddy.imageUrl);
 
-    fillOption(teddy);
+    addOption(teddy);
 }
 
-function fillOption(teddy) {
+// Implantation des couleurs dans un menu déroulant
+function addOption(teddy) {
     const select = document.getElementById("options");
     const colors = teddy.colors;
 

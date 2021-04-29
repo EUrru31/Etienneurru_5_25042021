@@ -8,7 +8,7 @@ async function main() {
     }
 }
 
-// Récupération de la base de donnée
+// Récupération de la base de donnée grace à la méthode fetch
 async function getAllTeddies() {
     return fetch("http://localhost:3000/api/teddies")
         .then((httpBodyResponse) => {
@@ -22,7 +22,7 @@ async function getAllTeddies() {
         });
 }
 
-// Alimentation du template
+// Alimentation du template HTML
 function displayTeddy(teddy) {
     const templateElt = document.getElementById("templateTeddy");
     const cloneElt = document.importNode(templateElt.content, true);

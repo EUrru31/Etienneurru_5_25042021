@@ -50,7 +50,7 @@ header {
 }
 
 .card {
-    width: 500px;
+    width: 650px;
     padding: 10px;
     margin-left: auto;
     margin-right: auto;
@@ -91,10 +91,7 @@ h2 {
 .table {
     margin-top: 40px;
     margin-bottom: 50px;
-    &__base {
-        border-bottom: 1px solid rgb(0, 0, 0) !important;
-        font-size: 1.3rem !important;
-    }
+    border-color: black;
 }
 
 .total {

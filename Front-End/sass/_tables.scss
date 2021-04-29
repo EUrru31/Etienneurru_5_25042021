@@ -15,7 +15,6 @@
     margin-bottom: $spacer;
     color: $table-color;
     vertical-align: $table-cell-vertical-align;
-    border-color: $table-border-color;
 
     // Target th & td
     // We need the child combinator to prevent styles leaking to nested tables which doesn't have a `.table` class.
@@ -39,7 +38,7 @@
 
     // Highlight border color between thead, tbody and tfoot.
     > :not(:last-child) > :last-child > * {
-        border-bottom-color: $table-group-separator-color;
+        border-bottom-color: rgb(212, 212, 212);
     }
 }
 

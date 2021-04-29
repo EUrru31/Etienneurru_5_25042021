@@ -1929,7 +1929,6 @@ progress {
   margin-bottom: 1rem;
   color: #212529;
   vertical-align: top;
-  border-color: #dee2e6;
 }
 .table > :not(caption) > * > * {
   padding: 0.5rem 0.5rem;
@@ -1944,7 +1943,7 @@ progress {
   vertical-align: bottom;
 }
 .table > :not(:last-child) > :last-child > * {
-  border-bottom-color: currentColor;
+  border-bottom-color: #d4d4d4;
 }
 
 .caption-top {
@@ -6058,7 +6057,7 @@ header {
 }
 
 .card {
-  width: 500px;
+  width: 650px;
   padding: 10px;
   margin-left: auto;
   margin-right: auto;
@@ -6099,10 +6098,7 @@ h2, .h2 {
 .table {
   margin-top: 40px;
   margin-bottom: 50px;
-}
-.table__base {
-  border-bottom: 1px solid black !important;
-  font-size: 1.3rem !important;
+  border-color: black;
 }
 
 .total {
