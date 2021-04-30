@@ -55,10 +55,6 @@ btn.addEventListener("click", (e) => {
             ? []
             : JSON.parse(localStorage.getItem("panier"));
 
-    let data = JSON.parse(localStorage.getItem("panier"));
-
-    panier.push(data);
-
     panier.push(teddy);
     localStorage.setItem("panier", JSON.stringify(panier));
 });
