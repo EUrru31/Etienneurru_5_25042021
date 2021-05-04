@@ -48,85 +48,57 @@
             <p class="total">Total : <span id="total"></span>€</p>
 
             
-            <form class="formulaire well form-horizontal" action=" " method="post"  id="contact_form">
+            <form id="loginForm" class="formulaire well form-horizontal" action="" method="post"  id="contact_form">
                 <fieldset>
          
                 <legend>Coordonnées</legend>
                 
                 <div class="form-group">
-                  <label class="col-md-4 control-label">Prénom</label>  
-                    <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                      <input id="firstName"  name="first_name" placeholder="Prénom" class="form-control"  type="text" required>
-                      </div>
-                    </div>
+                  <label class="col-md-4 control-label" for="firstName">Prénom</label>                    
+                  <input id="firstName"  name="firstName" placeholder="Prénom" class="form-control"  type="text" required>
+                  <small></small>   
                 </div>
                 
                 <div class="form-group">
-                  <label class="col-md-4 control-label" >Nom</label> 
-                    <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                  <input id="lastName" name="last_name" placeholder="Nom" class="form-control"  type="text" required>
-                    </div>
-                  </div>
+                  <label class="col-md-4 control-label" for="lastName">Nom</label>                   
+                  <input id="lastName" name="lastName" placeholder="Nom" class="form-control"  type="text" required>
+                  <small></small>
                 </div>
                 
-                       <div class="form-group">
-                  <label class="col-md-4 control-label">E-Mail</label>  
-                    <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="email">E-Mail</label>                    
                   <input id="email" name="email" placeholder="E-Mail" class="form-control"  type="email" required>
-                    </div>
-                  </div>
+                  <small></small>
                 </div>
                        
                 <div class="form-group">
-                  <label class="col-md-4 control-label">Téléphone</label>  
-                    <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                  <label class="col-md-4 control-label" for="phone">Téléphone</label>                    
                   <input name="phone" placeholder="0123456789" class="form-control" type="tel" required>
-                    </div>
-                  </div>
+                  <small></small>  
                 </div>
                       
                 <div class="form-group">
-                  <label class="col-md-4 control-label">Adresse</label>  
-                    <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                  <label class="col-md-4 control-label" for="address">Adresse</label>                    
                   <input name="address" placeholder="Adresse" class="form-control" type="text" required>
-                    </div>
-                  </div>
+                  <small></small>
                 </div>
                  
                 <div class="form-group">
-                  <label class="col-md-4 control-label">Ville</label>  
-                    <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                  <label class="col-md-4 control-label" for=" city">Ville</label>                    
                   <input name="city" placeholder="Ville" class="form-control"  type="text" required>
-                    </div>
-                  </div>
+                  <small></small>  
                 </div>
                 
                 <div class="form-group">
-                  <label class="col-md-4 control-label">Code Postal</label>  
-                    <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                  <label class="col-md-4 control-label" for="zip">Code Postal</label>                    
                   <input name="zip" placeholder="Code Postal" class="form-control"  type="text" required>
-                    </div>
-                </div>
+                  <small></small> 
                 </div>
 
                 </fieldset>
                 </form>
 
-                <button id="orderCommand" class="btn" href="confirmation.html">Commander</button>
+                <button type="submit" id="orderCommand" class="btn" href="confirmation.html">Commander</button>
                 
                 
         </main>

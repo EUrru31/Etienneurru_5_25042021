@@ -14,7 +14,46 @@ if (panier === null) {
     }
 }
 
-// Envoie du formulaire au sessionStorage pour page de confirmation
+// Controle du formulaire
+
+let form = document.querySelector("#loginForm");
+
+form.email.addEventListener("change", function () {
+    validEmail(this);
+});
+
+const validEmail = function (inputEmail) {
+    let emailRegExp = new RegExp(
+        "^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]2,10}$",
+        "g"
+    );
+
+    // Récupération de la balise small
+    let small = inputEmail.nextElementSibling;
+
+    // Test de l'expression régulière
+
+    if (emailRegExp.test(inputEmail.value)) {
+        small.innerHTML = "Adresse Valide";
+        small.classList.remove("text-danger");
+        small.classList.add("text-success");
+        return true;
+    } else {
+        small.innerHTML = "Adresse Non-valide";
+        small.classList.remove("text-success");
+        small.classList.add("text-danger");
+        return false;
+    }
+};
+
+// Envoie du formulaire au localStorage pour page de confirmation
+
+form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (valideEmail(form.email)) {
+        form.submit();
+    }
+});
 
 const confirmOrder = document.getElementById("orderCommand");
 confirmOrder.addEventListener("click", (e) => {
@@ -24,32 +63,6 @@ confirmOrder.addEventListener("click", (e) => {
         customerName: document.getElementById("lastName").value,
         customerFirstName: document.getElementById("firstName").value,
         customerEmail: document.getElementById("email").value,
-        /*commandNumber = function strRandom(o) { // Générateur de numéro de commande
-            var a = 15,
-                b = "abcdefghijklmnopqrstuvwxyz",
-                c = "",
-                d = 0,
-                e = "" + b;
-            if (o) {
-                if (o.startsWithLowerCase) {
-                    c = b[Math.floor(Math.random() * b.length)];
-                    d = 1;
-                }
-                if (o.length) {
-                    a = o.length;
-                }
-                if (o.includeUpperCase) {
-                    e += b.toUpperCase();
-                }
-                if (o.includeNumbers) {
-                    e += "1234567890";
-                }
-            }
-            for (; d < a; d++) {
-                c += e[Math.floor(Math.random() * e.length)];
-            }
-            return c;
-        }*/
     };
 
     const infosOrder =
