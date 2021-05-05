@@ -6,13 +6,37 @@ let panier = JSON.parse(localStorage.getItem("panier"));
 if (panier === null) {
     console.log("panier vide");
 } else {
-    for (let i = 0; i < panier.length; i++) {
-        document.getElementById("article").innerHTML = panier[i].teddiesName;
-        document.getElementById("couleur").innerHTML = panier[i].teddiesColor;
-        document.getElementById("prix").innerHTML = panier[i].teddiesPrice;
-        document.getElementById("quantité").innerHTML = panier[i].teddiesQuant;
+    for (const teddy of panier) {
+        addProductToSummary(teddy);
     }
 }
+
+function addProductToSummary(teddy) {
+    const templateElt = document.getElementById("row-template");
+    const cloneElt = document.importNode(templateElt.content, true);
+
+    cloneElt.getElementById("article").textContent = teddy.teddiesName;
+    cloneElt.getElementById("couleur").textContent = teddy.teddiesColor;
+    cloneElt.getElementById("quantité").textContent = teddy.teddiesQuant;
+    cloneElt.getElementById("prix").textContent = teddy.teddiesPrice;
+
+    document.getElementById("cart-tablebody").appendChild(cloneElt);
+}
+
+// Calcule du total (reste à enlever le symbole € car probleme dans l'addition)
+
+const prices = [];
+
+for (teddy of panier) {
+    const price = panier.teddiesPrice;
+    const total = parseInt(price);
+    prices.push(total);
+}
+
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
+const totalPrice = prices.reduce(reducer, 0);
+
+const cartPrice = (document.getElementById("total").innerText = totalPrice);
 
 // Controle du formulaire
 
@@ -24,7 +48,7 @@ form.email.addEventListener("change", function () {
 
 const validEmail = function (inputEmail) {
     let emailRegExp = new RegExp(
-        "^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]2,10}$",
+        "^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-zA-Z]{2,10}$",
         "g"
     );
 
@@ -48,28 +72,53 @@ const validEmail = function (inputEmail) {
 
 // Envoie du formulaire au localStorage pour page de confirmation
 
-form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    if (valideEmail(form.email)) {
-        form.submit();
-    }
-});
-
 const confirmOrder = document.getElementById("orderCommand");
+
 confirmOrder.addEventListener("click", (e) => {
     e.preventDefault();
 
+    if (!validEmail(form.email)) {
+        alert("email invalide");
+        return;
+    }
+
     const customerInformations = {
-        customerName: document.getElementById("lastName").value,
-        customerFirstName: document.getElementById("firstName").value,
-        customerEmail: document.getElementById("email").value,
+        lastName: document.getElementById("lastName").value,
+        firstName: document.getElementById("firstName").value,
+        email: document.getElementById("email").value,
+        address: document.getElementById("address").value,
+        city: document.getElementById("city").value,
     };
 
-    const infosOrder =
-        localStorage.getItem("infos") === null
-            ? []
-            : JSON.parse(localStorage.getItem("infos"));
+    const idsArray = panier.map((teddy) => teddy.teddiesID);
 
-    infosOrder.push(customerInformations);
-    localStorage.setItem("infos", JSON.stringify(infosOrder));
+    fetch("http://localhost:3000/api/teddies/order", {
+        method: "post",
+        header: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            contact: customerInformations,
+            products: idsArray,
+        }),
+    })
+        .then(function (httpResponse) {
+            return httpResponse.json();
+        })
+        .then(function (httpResponse) {
+            window.location.href = "confirmation.html";
+            localStorage.removeItem("panier");
+        });
 });
+
+// Vider le panier
+function emptyCart() {
+    const emptyCart = document.getElementById("emptyCart");
+    emptyCart.addEventListener("click", (e) => {
+        e.preventDefault();
+        localStorage.removeItem("panier");
+        alert("Panier vidé");
+        window.location.href = "index.html";
+    });
+}

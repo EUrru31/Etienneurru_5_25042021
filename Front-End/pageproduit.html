@@ -4,81 +4,85 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link href="bootstrap.css" rel="stylesheet">
+        <link href="bootstrap.css" rel="stylesheet" />
         <title>Oriteddies</title>
     </head>
 
     <body class="container-fluid">
         <header>
             <div class="logo">
-                <img src="img/logo.svg"
-                    alt="Logo Orinoco"
-                />
+                <img src="img/logo.svg" alt="Logo Orinoco" />
                 <p class="logo__title">ORITEDDIES<span>byOrinoco</span></p>
             </div>
 
             <div class="navbar-collapse">
                 <ul class="navbar-nav">
-                      <li class="nav-item">
-                          <a class="nav-link" href="index.html">Notre boutique</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="présentation.html">Qui sommes nous?</a>
-                     </li>
-                     <li class="nav-item">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Notre boutique</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="présentation.html"
+                            >Qui sommes nous?</a
+                        >
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="panier.html">Panier</a>
-                     </li>
+                    </li>
                 </ul>
-                
             </div>
         </header>
 
         <main class="container">
-
             <div class="card__produits">
                 <div>
-                    <img id="teddiesImage" class="teddies__image" src="">
+                    <img id="teddiesImage" class="teddies__image" src="" />
                 </div>
 
                 <div class="teddies__text">
-
                     <h1 id="teddiesName" class="teddies__name"></h1>
 
                     <p id="teddiesDescription" class="teddies__description"></p>
 
                     <p id="teddiesPrice" class="teddies__price"></p>
 
-                    <select name="color" id="options" class="teddies__choice">
-                        <option value="">Choississez une couleur</option>
-                                                
-                    </select>
-                    <input id="teddiesQuantité" name="quantité" value="1" class="form-control" type="number">
-                    <button id="validationPanier" class="btn-panier">Ajouter au panier</button>
-                    
+                    <select
+                        name="color"
+                        id="options"
+                        class="teddies__choice"
+                    ></select>
+                    <input
+                        id="teddiesQuantité"
+                        name="quantité"
+                        value="1"
+                        class="form-control"
+                        type="number"
+                    />
+                    <button id="validationPanier" class="btn-panier">
+                        Ajouter au panier
+                    </button>
                 </div>
             </div>
-
-
         </main>
 
         <footer>
-            
             <ul>
-                <img class="logo" src="img/orinoco-logo.png">
+                <img class="logo" src="img/orinoco-logo.png" />
                 <li>Condition générale de vente</li>
-
             </ul>
-            
+
             <ul>
                 <li href="présentation.html">A propos de nous</li>
-                <li>Oriteddies, revendeur francais de peluches de qualité, pour petits et grands. </li>
-                <li>Contactez-nous au 0123456789 ou par email: oriteddies@orinoco.fr</li>
-                
+                <li>
+                    Oriteddies, revendeur francais de peluches de qualité, pour
+                    petits et grands.
+                </li>
+                <li>
+                    Contactez-nous au 0123456789 ou par email:
+                    oriteddies@orinoco.fr
+                </li>
             </ul>
-
         </footer>
 
         <script src="pageproduit.js" defer></script>
     </body>
-</html>
 </html>

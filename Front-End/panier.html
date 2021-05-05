@@ -4,123 +4,206 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link href="bootstrap.css" rel="stylesheet">
+        <link href="bootstrap.css" rel="stylesheet" />
         <title>Oriteddies</title>
     </head>
 
     <body class="container-fluid">
         <header>
             <div class="logo">
-                <img src="img/logo.svg"
-                    alt="Logo Orinoco"
-                />
+                <img src="img/logo.svg" alt="Logo Orinoco" />
                 <p class="logo__title">ORITEDDIES<span>byOrinoco</span></p>
             </div>
 
             <div class="navbar-collapse">
                 <ul class="navbar-nav">
-                      <li class="nav-item">
-                          <a class="nav-link" href="index.html">Notre boutique</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="présentation.html">Qui sommes nous?</a>
-                     </li>
-                     <li class="nav-item">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Notre boutique</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="présentation.html"
+                            >Qui sommes nous?</a
+                        >
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="panier.html">Panier</a>
-                     </li>
+                    </li>
                 </ul>
-                
             </div>
         </header>
 
         <main class="container">
-
             <h1>Panier</h1>
 
             <table class="table">
                 <thead>
-                  <tr><th>Article</th><th>Couleur</th><th>Quantité</th><th>Prix</th></tr>
-                  <tr><th id="article" class="table__artice">Article</th><th id="couleur" class="table__artice">Couleur</th><th id="quantité" class="table__artice">Quantité</th><th id="prix" class="table__artice">Prix</th></tr>
+                    <tr>
+                        <th>Article</th>
+                        <th>Couleur</th>
+                        <th>Quantité</th>
+                        <th>Prix</th>
+                    </tr>
                 </thead>
-                <tbody id="cart-tablebody"></tbody>
+                <tbody id="cart-tablebody">
+                    <template id="row-template">
+                        <tr>
+                            <td id="article" class="table__artice"></td>
+                            <td id="couleur" class="table__artice"></td>
+                            <td id="quantité" class="table__artice"></td>
+                            <td id="prix" class="table__artice"></td>
+                        </tr>
+                    </template>
+                </tbody>
             </table>
-            
+
             <p class="total">Total : <span id="total"></span>€</p>
 
-            
-            <form id="loginForm" class="formulaire well form-horizontal" action="" method="post"  id="contact_form">
+            <button id="emptyCart" class="btn-red">Vider le panier</button>
+
+            <form
+                id="loginForm"
+                class="formulaire well form-horizontal"
+                action=""
+                method="post"
+                id="contact_form"
+            >
                 <fieldset>
-         
-                <legend>Coordonnées</legend>
-                
-                <div class="form-group">
-                  <label class="col-md-4 control-label" for="firstName">Prénom</label>                    
-                  <input id="firstName"  name="firstName" placeholder="Prénom" class="form-control"  type="text" required>
-                  <small></small>   
-                </div>
-                
-                <div class="form-group">
-                  <label class="col-md-4 control-label" for="lastName">Nom</label>                   
-                  <input id="lastName" name="lastName" placeholder="Nom" class="form-control"  type="text" required>
-                  <small></small>
-                </div>
-                
-                <div class="form-group">
-                  <label class="col-md-4 control-label" for="email">E-Mail</label>                    
-                  <input id="email" name="email" placeholder="E-Mail" class="form-control"  type="email" required>
-                  <small></small>
-                </div>
-                       
-                <div class="form-group">
-                  <label class="col-md-4 control-label" for="phone">Téléphone</label>                    
-                  <input name="phone" placeholder="0123456789" class="form-control" type="tel" required>
-                  <small></small>  
-                </div>
-                      
-                <div class="form-group">
-                  <label class="col-md-4 control-label" for="address">Adresse</label>                    
-                  <input name="address" placeholder="Adresse" class="form-control" type="text" required>
-                  <small></small>
-                </div>
-                 
-                <div class="form-group">
-                  <label class="col-md-4 control-label" for=" city">Ville</label>                    
-                  <input name="city" placeholder="Ville" class="form-control"  type="text" required>
-                  <small></small>  
-                </div>
-                
-                <div class="form-group">
-                  <label class="col-md-4 control-label" for="zip">Code Postal</label>                    
-                  <input name="zip" placeholder="Code Postal" class="form-control"  type="text" required>
-                  <small></small> 
-                </div>
+                    <legend>Coordonnées</legend>
 
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="firstName"
+                            >Prénom</label
+                        >
+                        <input
+                            id="firstName"
+                            name="firstName"
+                            placeholder="Prénom"
+                            class="form-control"
+                            type="text"
+                            required
+                        />
+                        <small></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="lastName"
+                            >Nom</label
+                        >
+                        <input
+                            id="lastName"
+                            name="lastName"
+                            placeholder="Nom"
+                            class="form-control"
+                            type="text"
+                            required
+                        />
+                        <small></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="email"
+                            >E-Mail</label
+                        >
+                        <input
+                            id="email"
+                            name="email"
+                            placeholder="E-Mail"
+                            class="form-control"
+                            type="email"
+                            required
+                        />
+                        <small></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="phone"
+                            >Téléphone</label
+                        >
+                        <input
+                            name="phone"
+                            placeholder="0123456789"
+                            class="form-control"
+                            type="tel"
+                            required
+                        />
+                        <small></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="address"
+                            >Adresse</label
+                        >
+                        <input
+                            id="address"
+                            name="address"
+                            placeholder="Adresse"
+                            class="form-control"
+                            type="text"
+                            required
+                        />
+                        <small></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for=" city"
+                            >Ville</label
+                        >
+                        <input
+                            id="city"
+                            name="city"
+                            placeholder="Ville"
+                            class="form-control"
+                            type="text"
+                            required
+                        />
+                        <small></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="zip"
+                            >Code Postal</label
+                        >
+                        <input
+                            name="zip"
+                            placeholder="Code Postal"
+                            class="form-control"
+                            type="text"
+                            required
+                        />
+                        <small></small>
+                    </div>
                 </fieldset>
-                </form>
+            </form>
 
-                <button type="submit" id="orderCommand" class="btn" href="confirmation.html">Commander</button>
-                
-                
+            <button
+                type="submit"
+                id="orderCommand"
+                class="btn"
+                href="confirmation.html"
+            >
+                Commander
+            </button>
         </main>
 
         <footer>
-            
             <ul>
-                <img class="logo" src="img/orinoco-logo.png">
+                <img class="logo" src="img/orinoco-logo.png" />
                 <li>Condition générale de vente</li>
-
             </ul>
-            
+
             <ul>
                 <li href="présentation.html">A propos de nous</li>
-                <li>Oriteddies, revendeur francais de peluches de qualité, pour petits et grands. </li>
-                <li>Contactez-nous au 0123456789 ou par email: oriteddies@orinoco.fr</li>
-                
+                <li>
+                    Oriteddies, revendeur francais de peluches de qualité, pour
+                    petits et grands.
+                </li>
+                <li>
+                    Contactez-nous au 0123456789 ou par email:
+                    oriteddies@orinoco.fr
+                </li>
             </ul>
-
         </footer>
 
         <script src="panier.js" defer></script>
     </body>
-</html>
 </html>
