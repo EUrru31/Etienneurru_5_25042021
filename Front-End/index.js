@@ -41,3 +41,17 @@ function displayTeddy(teddy) {
 
     document.getElementById("main").appendChild(cloneElt);
 }
+
+// Nombre de produit dans le localStorage
+let countCart = JSON.parse(localStorage.getItem("panier"));
+
+// Remplissage du nombre de produit dans le panier
+
+countCartNumber();
+function countCartNumber() {
+    if (countCart != null) {
+        document.getElementById("cartQuant").innerText = countCart.length;
+    } else {
+        document.getElementById("cartQuant").innerText = "0";
+    }
+}
