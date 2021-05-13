@@ -8,7 +8,8 @@ async function main() {
     }
 }
 
-import { countCartNumber } from "/carthelper.js";
+//Import du compteur panier
+import { countCartNumber } from "./carthelper.js";
 countCartNumber();
 
 // Récupération de la base de donnée grace à la méthode fetch

@@ -1,8 +1,10 @@
 //Variable contenant les produits dans le localStorage
 let panier = JSON.parse(localStorage.getItem("panier"));
-import { countCartNumber } from "/carthelper.js";
 
+//Import du compteur panier
+import { countCartNumber } from "./carthelper.js";
 countCartNumber();
+
 // injecter les produits dans le panier
 
 if (panier === null) {

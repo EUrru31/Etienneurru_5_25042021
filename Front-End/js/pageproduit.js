@@ -1,7 +1,8 @@
 // Récupération des données des oursons grace à leurs ID
 fillProductInformation();
 
-import { countCartNumber } from "/carthelper.js";
+//Import du compteur panier
+import { countCartNumber } from "./carthelper.js";
 countCartNumber();
 
 function fillProductInformation() {
