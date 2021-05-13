@@ -1,6 +1,8 @@
 //Variable contenant les produits dans le localStorage
 let panier = JSON.parse(localStorage.getItem("panier"));
+import { countCartNumber } from "/carthelper.js";
 
+countCartNumber();
 // injecter les produits dans le panier
 
 if (panier === null) {
@@ -25,16 +27,11 @@ function addProductToSummary(teddy) {
 
 // Calcule du total (reste à enlever le symbole € car probleme dans l'addition)
 
-const prices = [];
+let totalPrice = 0;
 
-for (teddy of panier) {
-    const price = panier.teddiesPrice;
-    const total = parseInt(price);
-    prices.push(total);
+for (const teddy of panier) {
+    totalPrice += teddy.teddiesPrice;
 }
-
-const reducer = (accumulator, currentValue) => accumulator + currentValue;
-const totalPrice = prices.reduce(reducer, 0);
 
 const cartPrice = (document.getElementById("total").innerText = totalPrice);
 
@@ -90,7 +87,7 @@ confirmOrder.addEventListener("click", (e) => {
         city: document.getElementById("city").value,
     };
 
-    const idsArray = panier.map((teddy) => teddy.teddiesID);
+    const idsArray = panier.map((teddy) => teddy.teddiesId);
 
     fetch("http://localhost:3000/api/teddies/order", {
         method: "post",
@@ -124,17 +121,3 @@ function emptyCart() {
 }
 
 emptyCart();
-
-// Nombre de produit dans le localStorage
-let countCart = JSON.parse(localStorage.getItem("panier"));
-
-// Remplissage du nombre de produit dans le panier
-
-countCartNumber();
-function countCartNumber() {
-    if (countCart != null) {
-        document.getElementById("cartQuant").innerText = countCart.length;
-    } else {
-        document.getElementById("cartQuant").innerText = "0";
-    }
-}

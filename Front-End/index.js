@@ -3,10 +3,13 @@ main();
 async function main() {
     const teddies = await getAllTeddies();
 
-    for (teddy of teddies) {
+    for (const teddy of teddies) {
         displayTeddy(teddy);
     }
 }
+
+import { countCartNumber } from "/carthelper.js";
+countCartNumber();
 
 // Récupération de la base de donnée grace à la méthode fetch
 async function getAllTeddies() {
@@ -40,18 +43,4 @@ function displayTeddy(teddy) {
         .setAttribute("href", "pageproduit.html?id=" + teddy._id);
 
     document.getElementById("main").appendChild(cloneElt);
-}
-
-// Nombre de produit dans le localStorage
-let countCart = JSON.parse(localStorage.getItem("panier"));
-
-// Remplissage du nombre de produit dans le panier
-
-countCartNumber();
-function countCartNumber() {
-    if (countCart != null) {
-        document.getElementById("cartQuant").innerText = countCart.length;
-    } else {
-        document.getElementById("cartQuant").innerText = "0";
-    }
 }

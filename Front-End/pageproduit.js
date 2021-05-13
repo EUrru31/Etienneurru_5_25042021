@@ -1,6 +1,9 @@
 // Récupération des données des oursons grace à leurs ID
 fillProductInformation();
 
+import { countCartNumber } from "/carthelper.js";
+countCartNumber();
+
 function fillProductInformation() {
     const url = new URL(window.location.href);
     const teddyID = url.searchParams.get("id");
@@ -11,9 +14,8 @@ function fillProductInformation() {
         })
         .then(function (teddy) {
             addProduct(teddy);
+            setupButton(teddy);
         });
-
-    setupButton(teddyID);
 }
 
 // Implantation des informations des ours
@@ -43,17 +45,17 @@ function addOption(teddy) {
 
 //Envoi des données au localStorage
 
-function setupButton(teddyID) {
+function setupButton(product) {
     const btn = document.getElementById("validationPanier");
     btn.addEventListener("click", (e) => {
         e.preventDefault();
 
         const teddy = {
-            teddiesName: document.getElementById("teddiesName").textContent,
+            teddiesName: product.name,
             teddiesColor: document.getElementById("options").value,
             teddiesQuant: document.getElementById("teddiesQuantité").value,
-            teddiesPrice: document.getElementById("teddiesPrice").innerHTML,
-            teddiesId: teddyID,
+            teddiesPrice: product.price / 100,
+            teddiesId: product._id,
         };
 
         const panier =
@@ -66,18 +68,4 @@ function setupButton(teddyID) {
 
         window.location.reload();
     });
-}
-
-// Nombre de produit dans le localStorage
-let countCart = JSON.parse(localStorage.getItem("panier"));
-
-// Remplissage du nombre de produit dans le panier
-
-countCartNumber();
-function countCartNumber() {
-    if (countCart != null) {
-        document.getElementById("cartQuant").innerText = countCart.length;
-    } else {
-        document.getElementById("cartQuant").innerText = "0";
-    }
 }
