@@ -6006,7 +6006,7 @@ textarea.form-control-lg {
 }
 
 body {
-  background-color: #f1efef;
+  background-color: #e73939;
   font-family: "comic Sans MS", sans-serif;
 }
 
@@ -6057,7 +6057,7 @@ header {
 }
 
 .card {
-  width: 650px;
+  width: 350px;
   padding: 10px;
   margin-left: auto;
   margin-right: auto;
@@ -6065,11 +6065,12 @@ header {
   text-decoration: none;
   color: black;
   border-radius: 20px;
+  box-shadow: 5px 5px 5px rgba(155, 154, 154, 0.7);
 }
 
 .teddies__imageUrl {
   width: 99%;
-  height: 330px;
+  height: 80%;
   margin-bottom: 20px;
   border-radius: 20px;
 }
@@ -6187,6 +6188,30 @@ footer ul img {
   font-size: 0.8rem;
 }
 
+@media screen and (min-width: 600px) and (max-width: 1050px) {
+  header {
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}
+@media all and (max-width: 600px) {
+  header {
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .logo {
+    width: 70px;
+  }
+
+  .logo__title2 {
+    display: none;
+  }
+
+  footer {
+    flex-direction: column;
+  }
+}
 .clearfix::after {
   display: block;
   clear: both;

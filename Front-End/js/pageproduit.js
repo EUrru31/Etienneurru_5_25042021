@@ -5,6 +5,7 @@ fillProductInformation();
 import { countCartNumber } from "./carthelper.js";
 countCartNumber();
 
+//Récupérer les données transmise dans l'Url
 function fillProductInformation() {
     const url = new URL(window.location.href);
     const teddyID = url.searchParams.get("id");

@@ -22,12 +22,13 @@ function addProductToSummary(teddy) {
     cloneElt.getElementById("article").textContent = teddy.teddiesName;
     cloneElt.getElementById("couleur").textContent = teddy.teddiesColor;
     cloneElt.getElementById("quantité").textContent = teddy.teddiesQuant;
-    cloneElt.getElementById("prix").textContent = teddy.teddiesPrice;
+    cloneElt.getElementById("prix").textContent =
+        teddy.teddiesPrice + " " + "€";
 
     document.getElementById("cart-tablebody").appendChild(cloneElt);
 }
 
-// Calcule du total (reste à enlever le symbole € car probleme dans l'addition)
+// Calcule du total
 
 let totalPrice = 0;
 
@@ -93,7 +94,7 @@ confirmOrder.addEventListener("click", (e) => {
 
     fetch("http://localhost:3000/api/teddies/order", {
         method: "post",
-        header: {
+        headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
         },
@@ -104,9 +105,10 @@ confirmOrder.addEventListener("click", (e) => {
     })
         .then(function (httpResponse) {
             return httpResponse.json();
+            console.log(httpResponse);
         })
         .then(function (httpResponse) {
-            window.location.href = "confirmation.html";
+            window.location.href = "#";
             localStorage.removeItem("panier");
         });
 });
