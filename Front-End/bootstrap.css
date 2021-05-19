@@ -6006,7 +6006,7 @@ textarea.form-control-lg {
 }
 
 body {
-  background-color: #e73939;
+  background-color: #ecdfeb;
   font-family: "comic Sans MS", sans-serif;
 }
 
@@ -6193,6 +6193,10 @@ footer ul img {
     flex-wrap: wrap;
     align-items: center;
   }
+
+  #navbar {
+    width: 100%;
+  }
 }
 @media all and (max-width: 600px) {
   header {
@@ -6210,6 +6214,11 @@ footer ul img {
 
   footer {
     flex-direction: column;
+  }
+
+  #navbar {
+    width: 100%;
+    margin-right: auto;
   }
 }
 .clearfix::after {
