@@ -6188,17 +6188,7 @@ footer ul img {
   font-size: 0.8rem;
 }
 
-@media screen and (min-width: 600px) and (max-width: 1050px) {
-  header {
-    flex-wrap: wrap;
-    align-items: center;
-  }
-
-  #navbar {
-    width: 100%;
-  }
-}
-@media all and (max-width: 600px) {
+@media all and (max-width: 860px) {
   header {
     flex-wrap: wrap;
     align-items: center;
