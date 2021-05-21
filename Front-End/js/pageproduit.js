@@ -1,8 +1,9 @@
+//Import du compteur panier
+import { countCartNumber, setCart, getCart } from "./helpers/cart.js";
+import { getTeddyInformation } from "./helpers/backend.js";
+
 // Récupération des données des oursons grace à leurs ID
 fillProductInformation();
-
-//Import du compteur panier
-import { countCartNumber } from "./carthelper.js";
 countCartNumber();
 
 //Récupérer les données transmise dans l'Url
@@ -10,14 +11,10 @@ function fillProductInformation() {
     const url = new URL(window.location.href);
     const teddyID = url.searchParams.get("id");
 
-    fetch("http://localhost:3000/api/teddies/" + teddyID)
-        .then(function (httpResponse) {
-            return httpResponse.json();
-        })
-        .then(function (teddy) {
-            addProduct(teddy);
-            setupButton(teddy);
-        });
+    getTeddyInformation(teddyID).then((teddy) => {
+        addProduct(teddy);
+        setupButton(teddy);
+    });
 }
 
 // Implantation des informations des ours

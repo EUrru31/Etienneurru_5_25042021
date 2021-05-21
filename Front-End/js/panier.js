@@ -1,18 +1,26 @@
-//Variable contenant les produits dans le localStorage
-let panier = JSON.parse(localStorage.getItem("panier"));
-
 //Import du compteur panier
-import { countCartNumber } from "./carthelper.js";
+import { order } from "./helpers/backend.js";
+import { countCartNumber, setCart, getCart } from "./helpers/cart.js";
+
 countCartNumber();
+fillSummary();
+setupFormValidator();
+setupOrderButton();
+setupEmptyCartButton();
 
 // injecter les produits dans le panier
 
-if (panier === null) {
-    console.log("panier vide");
-} else {
+function fillSummary() {
+    //Variable contenant les produits dans le localStorage
+    let panier = getCart();
+    let totalPrice = 0;
+    //injecter les produits dans le panier
+    //calcule du total
     for (const teddy of panier) {
         addProductToSummary(teddy);
+        totalPrice += teddy.teddiesPrice;
     }
+    document.getElementById("total").innerText = totalPrice;
 }
 
 function addProductToSummary(teddy) {
@@ -28,25 +36,17 @@ function addProductToSummary(teddy) {
     document.getElementById("cart-tablebody").appendChild(cloneElt);
 }
 
-// Calcule du total
+function setupFormValidator() {
+    let form = document.getElementById("loginForm");
 
-let totalPrice = 0;
-
-for (const teddy of panier) {
-    totalPrice += teddy.teddiesPrice;
+    form.email.addEventListener("change", function () {
+        validEmail(this);
+    });
 }
-
-const cartPrice = (document.getElementById("total").innerText = totalPrice);
 
 // Controle du formulaire
 
-let form = document.querySelector("#loginForm");
-
-form.email.addEventListener("change", function () {
-    validEmail(this);
-});
-
-const validEmail = function (inputEmail) {
+function validEmail(inputEmail) {
     let emailRegExp = new RegExp(
         "^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-zA-Z]{2,10}$",
         "g"
@@ -68,60 +68,52 @@ const validEmail = function (inputEmail) {
         small.classList.add("text-danger");
         return false;
     }
-};
+}
+
+function setupOrderButton() {
+    const form = document.getElementById("loginForm");
+    const confirmOrder = document.getElementById("orderCommand");
+
+    confirmOrder.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        if (!validEmail(form.email)) {
+            alert("email invalide");
+            return;
+        }
+
+        const customerInformations = {
+            lastName: document.getElementById("lastName").value,
+            firstName: document.getElementById("firstName").value,
+            email: document.getElementById("email").value,
+            address: document.getElementById("address").value,
+            city: document.getElementById("city").value,
+        };
+
+        const panier = getCart();
+        const idsArray = panier.map((teddy) => teddy.teddiesId);
+
+        order(customerInformations, idsArray).then((response) => {
+            console.log(response);
+            window.location.href =
+                "confirmation.html?orderId=" +
+                response.orderId +
+                "&name=" +
+                customerInformations.firstName;
+            setCart([]);
+        });
+    });
+}
 
 // Envoie du formulaire au localStorage pour page de confirmation
 
-const confirmOrder = document.getElementById("orderCommand");
-
-confirmOrder.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    if (!validEmail(form.email)) {
-        alert("email invalide");
-        return;
-    }
-
-    const customerInformations = {
-        lastName: document.getElementById("lastName").value,
-        firstName: document.getElementById("firstName").value,
-        email: document.getElementById("email").value,
-        address: document.getElementById("address").value,
-        city: document.getElementById("city").value,
-    };
-
-    const idsArray = panier.map((teddy) => teddy.teddiesId);
-
-    fetch("http://localhost:3000/api/teddies/order", {
-        method: "post",
-        headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            contact: customerInformations,
-            products: idsArray,
-        }),
-    })
-        .then(function (httpResponse) {
-            return httpResponse.json();
-            console.log(httpResponse);
-        })
-        .then(function (httpResponse) {
-            window.location.href = "#";
-            localStorage.removeItem("panier");
-        });
-});
-
 // Vider le panier
-function emptyCart() {
+function setupEmptyCartButton() {
     const emptyCart = document.getElementById("emptyCart");
     emptyCart.addEventListener("click", (e) => {
         e.preventDefault();
-        localStorage.removeItem("panier");
+        setCart([]);
         alert("Panier vidé");
         window.location.href = "index.html";
     });
 }
-
-emptyCart();

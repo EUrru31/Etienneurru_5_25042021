@@ -1,4 +1,9 @@
+//Import du compteur panier
+import { countCartNumber } from "./helpers/cart.js";
+import { getAllTeddies } from "./helpers/backend.js";
+
 main();
+countCartNumber();
 
 async function main() {
     const teddies = await getAllTeddies();
@@ -6,24 +11,6 @@ async function main() {
     for (const teddy of teddies) {
         displayTeddy(teddy);
     }
-}
-
-//Import du compteur panier
-import { countCartNumber } from "./carthelper.js";
-countCartNumber();
-
-// Récupération de la base de donnée grace à la méthode fetch
-async function getAllTeddies() {
-    return fetch("http://localhost:3000/api/teddies")
-        .then((httpBodyResponse) => {
-            return httpBodyResponse.json();
-        })
-        .then((teddies) => {
-            return teddies;
-        })
-        .catch((error) => {
-            alert("Connexion échouée !");
-        });
 }
 
 // Alimentation du template HTML
