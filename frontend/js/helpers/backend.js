@@ -1,5 +1,6 @@
 const backendUrl = "http://localhost:3000/api/teddies/";
 
+//Récupération des données dans le back-end
 export async function getAllTeddies() {
     try {
         const httpResponse = await fetch(backendUrl);
@@ -21,6 +22,8 @@ export async function getTeddyInformation(id) {
         console.error("Error while getting teddies information :" + error);
     }
 }
+
+//Envoi des données au back-end afin de récupérer le numéro de commande
 
 export async function order(customerInformations, idsArray) {
     const httpResponse = await fetch(backendUrl + "order", {

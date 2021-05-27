@@ -23,6 +23,7 @@ function fillSummary() {
     document.getElementById("total").innerText = totalPrice;
 }
 
+//Ajout des produit au tableau du panier
 function addProductToSummary(teddy) {
     const templateElt = document.getElementById("row-template");
     const cloneElt = document.importNode(templateElt.content, true);
@@ -36,6 +37,7 @@ function addProductToSummary(teddy) {
     document.getElementById("cart-tablebody").appendChild(cloneElt);
 }
 
+// Controle du formulaire
 function setupFormValidator() {
     let form = document.getElementById("loginForm");
 
@@ -43,8 +45,6 @@ function setupFormValidator() {
         validEmail(this);
     });
 }
-
-// Controle du formulaire
 
 function validEmail(inputEmail) {
     let emailRegExp = new RegExp(
@@ -70,6 +70,7 @@ function validEmail(inputEmail) {
     }
 }
 
+// Paramétrage du bouton de passage de commande
 function setupOrderButton() {
     const form = document.getElementById("loginForm");
     const confirmOrder = document.getElementById("orderCommand");
