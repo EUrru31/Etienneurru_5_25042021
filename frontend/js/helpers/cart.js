@@ -7,6 +7,7 @@ export function countCartNumber() {
     document.getElementById("cartQuant").innerText = cart.length;
 }
 
+//Récupération du panier dans le localStorage
 export function getCart() {
     let cart = JSON.parse(localStorage.getItem(cartLocalStorageKey));
     if (cart === null) cart = [];

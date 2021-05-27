@@ -1,4 +1,3 @@
-//Import du compteur panier
 import { countCartNumber } from "./helpers/cart.js";
 import { getAllTeddies } from "./helpers/backend.js";
 
