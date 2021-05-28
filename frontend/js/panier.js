@@ -44,6 +44,53 @@ function setupFormValidator() {
     form.email.addEventListener("change", function () {
         validEmail(this);
     });
+    form.firstName.addEventListener("change", function () {
+        validFormulaire(this);
+    });
+    form.lastName.addEventListener("change", function () {
+        validFormulaire(this);
+    });
+    form.phone.addEventListener("change", function () {
+        validNumber(this);
+    });
+    form.city.addEventListener("change", function () {
+        validFormulaire(this);
+    });
+    form.zip.addEventListener("change", function () {
+        validNumber(this);
+    });
+}
+
+function validFormulaire() {
+    let textRegExp = new RegExp("^[a-zA-Z]{2,20}$", "g");
+
+    if (textRegExp.test(inputEmail.value)) {
+        small.innerHTML = "Champ valide";
+        small.classList.remove("text-danger");
+        small.classList.add("text-success");
+        return true;
+    } else {
+        small.innerHTML = "Champ Non-valide";
+        small.classList.remove("text-success");
+        small.classList.add("text-danger");
+        return false;
+    }
+}
+
+function validNumber() {
+    let numberRegExp = new RegExp("^[0-9]{5,12}$", "g");
+
+    if (numberRegExp.test(inputEmail.value)) {
+        small.innerHTML = "Champ valide";
+        small.classList.remove("text-danger");
+        small.classList.add("text-success");
+        return true;
+    } else {
+        small.innerHTML = "Champ Non-valide";
+        small.classList.remove("text-success");
+        small.classList.add("text-danger");
+        return false;
+    }
 }
 
 function validEmail(inputEmail) {
