@@ -64,6 +64,8 @@ function setupFormValidator() {
 function validFormulaire() {
     let textRegExp = new RegExp("^[a-zA-Z]{2,20}$", "g");
 
+    let small = inputText.nextElementSibling;
+
     if (textRegExp.test(inputEmail.value)) {
         small.innerHTML = "Champ valide";
         small.classList.remove("text-danger");
@@ -79,6 +81,8 @@ function validFormulaire() {
 
 function validNumber() {
     let numberRegExp = new RegExp("^[0-9]{5,12}$", "g");
+
+    let small = inputTel.nextElementSibling;
 
     if (numberRegExp.test(inputEmail.value)) {
         small.innerHTML = "Champ valide";
@@ -125,7 +129,7 @@ function setupOrderButton() {
     confirmOrder.addEventListener("click", (e) => {
         e.preventDefault();
 
-        if (!validEmail(form.email)) {
+        if (!validEmail && !validFormulaire && !validNumber(form.email)) {
             alert("email invalide");
             return;
         }
