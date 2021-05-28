@@ -130,14 +130,18 @@ function setupOrderButton() {
     confirmOrder.addEventListener("click", (e) => {
         e.preventDefault();
 
+        if (Array.isArray(panier) && !panier.length) {
+            alert("Panier vide, allez vite le remplir !!!");
+            return;
+        }
+
         if (
             !validEmail(form.email) ||
             !validText(form.firstName) ||
             !validText(form.lastName) ||
             !validText(form.city) ||
             !validNumber(form.phone) ||
-            !validNumber(form.zip) ||
-            panier === null
+            !validNumber(form.zip)
         ) {
             alert("Champ(s) invalide");
             return;
