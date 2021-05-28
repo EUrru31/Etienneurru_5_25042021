@@ -45,28 +45,28 @@ function setupFormValidator() {
         validEmail(this);
     });
     form.firstName.addEventListener("change", function () {
-        validFormulaire(this);
+        validText(this);
     });
     form.lastName.addEventListener("change", function () {
-        validFormulaire(this);
+        validText(this);
     });
     form.phone.addEventListener("change", function () {
         validNumber(this);
     });
     form.city.addEventListener("change", function () {
-        validFormulaire(this);
+        validText(this);
     });
     form.zip.addEventListener("change", function () {
         validNumber(this);
     });
 }
 
-function validFormulaire() {
-    let textRegExp = new RegExp("^[a-zA-Z]{2,20}$", "g");
+function validText(inputText) {
+    let textRegExp = new RegExp("^[a-zA-Zéèàù]{2,20}$", "g");
 
     let small = inputText.nextElementSibling;
 
-    if (textRegExp.test(inputEmail.value)) {
+    if (textRegExp.test(inputText.value)) {
         small.innerHTML = "Champ valide";
         small.classList.remove("text-danger");
         small.classList.add("text-success");
@@ -79,12 +79,12 @@ function validFormulaire() {
     }
 }
 
-function validNumber() {
+function validNumber(inputNumber) {
     let numberRegExp = new RegExp("^[0-9]{5,12}$", "g");
 
-    let small = inputTel.nextElementSibling;
+    let small = inputNumber.nextElementSibling;
 
-    if (numberRegExp.test(inputEmail.value)) {
+    if (numberRegExp.test(inputNumber.value)) {
         small.innerHTML = "Champ valide";
         small.classList.remove("text-danger");
         small.classList.add("text-success");
@@ -125,12 +125,21 @@ function validEmail(inputEmail) {
 function setupOrderButton() {
     const form = document.getElementById("loginForm");
     const confirmOrder = document.getElementById("orderCommand");
+    const panier = getCart();
 
     confirmOrder.addEventListener("click", (e) => {
         e.preventDefault();
 
-        if (!validEmail && !validFormulaire && !validNumber(form.email)) {
-            alert("email invalide");
+        if (
+            !validEmail(form.email) ||
+            !validText(form.firstName) ||
+            !validText(form.lastName) ||
+            !validText(form.city) ||
+            !validNumber(form.phone) ||
+            !validNumber(form.zip) ||
+            panier === null
+        ) {
+            alert("Champ(s) invalide");
             return;
         }
 
@@ -142,7 +151,6 @@ function setupOrderButton() {
             city: document.getElementById("city").value,
         };
 
-        const panier = getCart();
         const idsArray = panier.map((teddy) => teddy.teddiesId);
 
         order(customerInformations, idsArray).then((response) => {
